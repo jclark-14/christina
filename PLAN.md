@@ -1,38 +1,48 @@
 # Christina Outreach Landing Page Plan
 
-## Project Snapshot
-The landing page is implemented as a single-page Next.js 14 application with modular sections for mission, classes, giving, and contact. Styling is handled through global design tokens and lightweight utility classes to create a warm Squarespace-inspired aesthetic.
+## Project Vision
+Create a single-page "Squarespace-style" marketing and donation site for Christina Fowler's HeartSync-focused ministry. The page should communicate her mission, highlight classes and sessions, and provide clear calls to action for booking, registering, and giving. The look and feel should be warm, inviting, and professional, using the provided Flora Jones palette and welcoming imagery instead of personal photos.
+
+## Technical Stack Recommendation
+- **Framework**: Next.js 14 (App Router) deployed on Vercel for fast static generation, built-in routing, and SEO support.
+- **Styling**: Tailwind CSS with custom theme tokens to express the Flora Jones color palette and typography utilities for cohesive spacing and layout.
+- **Content Management**: Use static JSON/MDX content for copy, or integrate a headless CMS (Sanity, Contentful) if non-technical stakeholders need to edit content frequently.
+- **Payments/Donations**: Stripe Checkout or Stripe Payment Links embedded via Next.js API Route or Stripe-hosted links (no PCI compliance burden). Provide alternate giving methods (Zelle, PayPal, check) via CTA buttons.
+- **Newsletter Signup**: Use a hosted form (Mailchimp, ConvertKit, or Substack) embedded via secure client-side form post or API route proxy.
 
 ## Architecture Overview
-- **Framework**: Next.js App Router with static rendering for fast loads and straightforward Vercel deployment.
-- **Structure**: Each major section (hero, mission, classes, giving, contact, footer) resides in `src/components`, making future changes isolated and reusable.
-- **Content Management**: Copy and CTAs are driven by structured data in `src/data` and `src/config/site.ts`. Updating these files refreshes the page without touching JSX layout logic.
-- **Navigation**: Sticky top navigation with anchor links for smooth scrolling to sections.
+1. **App Layout**
+   - Hero section with Christina's message, mission statement, and quick CTA buttons.
+   - Navigation banner with anchor links (`#mission`, `#classes`, `#giving`, `#contact`).
+   - Section blocks for Mission, Classes (HeartSync Foundations, Pathways, Retreats, Belonging, Forming), Testimonials (optional), Giving, Contact, and FAQ.
+   - Sticky/mobile navigation for quick jumps.
+2. **Data Modeling**
+   - Represent programs in structured data (`programs.ts`) to drive the classes section.
+   - Use MDX for long-form descriptions to retain formatting while keeping content manageable.
+3. **Integrations**
+   - Link "Book a HeartSync Session" CTA to scheduling tool (Calendly or TidyCal).
+   - Donation CTAs route to Stripe-hosted payment pages to avoid handling card data directly.
+   - Use reCAPTCHA or hCaptcha on contact form to deter spam.
 
-## Current Features
-1. **Hero + Quick Actions**
-   - Mission statement with CTA buttons for giving and contact.
-   - Highlight card promoting current initiatives with a "Book a Session" button that points to the configurable Google Form link.
-2. **Mission Highlights**
-   - Three-card layout outlining outreach pillars.
-3. **Classes Overview**
-   - Modular card grid for key offerings with format badges.
-4. **Giving Options**
-   - Buttons for Stripe, Zelle, PayPal, and check giving with editable descriptions/links.
-5. **Contact Form**
-   - Collects name, email, message, and newsletter opt-in checkbox. Displays a success message (ready for integration with email/CRM service).
-   - Companion sidebar summarizing direct contact info and linking to the booking Google Form.
-6. **Footer**
-   - Location, contact details, and pointers to where configuration lives.
+## Security Considerations (Frontend-Centric)
+- **Payment Security**: Keep all payment processing off-site via Stripe-hosted Checkout or Payment Links. Never collect card information on the page; ensures PCI compliance with minimal effort.
+- **Form Hardening**: Validate inputs client-side and server-side (via Next.js API routes). Throttle or rate-limit submissions, and store secrets (email service API keys) as environment variables on Vercel.
+- **Embedded Scripts**: Only load trusted third-party scripts (Stripe, email marketing). Set `Content-Security-Policy` headers via Next.js middleware to restrict sources.
+- **HTTPS**: Vercel enforces HTTPS, preventing man-in-the-middle attacks for visitors.
+- **Dependency Hygiene**: Keep packages updated, run `npm audit`, and lock dependencies with `package-lock.json`.
+- **Accessibility & Privacy**: Offer privacy notice for forms, comply with CAN-SPAM for newsletters, and ensure accessible markup (proper headings, contrast from the palette).
 
-## Security & Integrations
-- Keep payments off-site through Stripe/Zelle/PayPal links to avoid handling sensitive data.
-- When integrating the contact form with an email service, use an API route or third-party provider that supports CAPTCHA/spam mitigation.
-- Store future API keys or secrets in Vercel environment variables; never commit them to the repo.
+## Visual Design Guidelines
+- **Color Palette**: Translate the Flora Jones palette into Tailwind theme variables (primary `#4D6D8A`, accent `#D4E6E9`, neutral backgrounds `#E5EDEE`, highlight `#D4E6E9`, warm accent `#D8CEA4`).
+- **Typography**: Pair a serif display font for headings (e.g., "Playfair Display") with a humanist sans-serif for body (e.g., "Source Sans Pro").
+- **Layout**: Generous white space, card-like sections with soft shadows, rounded corners, and subtle gradients/texture for depth.
+- **Imagery**: Use abstract nature or ministry-related imagery, soft overlays, and avoid busy backgrounds. Highlight Christina's quote or prayer in large text blocks.
 
-## Future Enhancements
-- Swap placeholder copy with approved messaging and testimonials when available.
-- Integrate the contact form with the chosen mailing list or CRM provider.
-- Embed analytics or tracking pixels once requirements are confirmed (none currently).
-- Introduce a CMS (e.g., Sanity) if non-technical collaborators need to update content frequently.
-- Add imagery or iconography once brand assets are finalized.
+## Next Steps / Open Questions
+1. Confirm copy for each section (mission, class descriptions, testimonials, giving instructions).
+2. Decide on scheduling platform integration (Calendly link available?).
+3. Choose newsletter provider and donation platform (Stripe setup, connect PayPal/Zelle instructions).
+4. Determine any analytics requirements (Plausible or Vercel Analytics) and corresponding privacy disclosures.
+5. Gather brand assets (logo, typography preferences, imagery) and finalize hero messaging.
+
+Once these decisions are made, we can scaffold the Next.js project, define Tailwind theme tokens, and start implementing the sections with responsive layout and smooth scrolling navigation.
