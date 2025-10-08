@@ -16,7 +16,7 @@ export function HeroSection() {
           </p>
           <p>
             Through relationships, prayer, and community, I invite you to join me on a
-            journey toward wholeness—a place to be known, to heal, and to discover
+            journey toward wholeness: a place to be known, to heal, and to discover
             more of who God created you to be.
           </p>
           <div className="hero-actions">

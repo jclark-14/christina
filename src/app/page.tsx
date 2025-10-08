@@ -1,7 +1,7 @@
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
 import { MissionSection } from "@/components/MissionSection";
-import { ClassesSection } from "@/components/ClassesSection";
+import { OfferingsSection } from "@/components/OfferingsSection";
 import { GivingSection } from "@/components/GivingSection";
 import { ContactSection } from "@/components/ContactSection";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -15,7 +15,7 @@ export default function HomePage() {
         <HeroSection />
         <AboutSection />
         <MissionSection />
-        <ClassesSection />
+        <OfferingsSection />
         <GivingSection />
         <ContactSection />
       </main>

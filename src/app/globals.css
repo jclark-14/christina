@@ -303,3 +303,92 @@ textarea:focus {
     min-height: 400px;
   }
 }
+
+/* Offerings Section */
+.offerings-category {
+  margin-bottom: 3rem;
+}
+
+.offerings-category-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-text);
+  margin: 0 0 1.5rem 0;
+}
+
+.offerings-list {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.offering-card {
+  background: var(--color-muted);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.offering-card:hover {
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+}
+
+.offering-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  gap: 1rem;
+}
+
+.offering-header h4 {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.offering-header .badge {
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+.toggle-icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(27, 73, 101, 0.1);
+}
+
+.offering-content {
+  padding: 0 1.5rem 1.5rem;
+  animation: slideDown 0.2s ease;
+}
+
+.offering-content p {
+  margin: 0;
+  line-height: 1.7;
+  color: rgba(31, 41, 51, 0.8);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
