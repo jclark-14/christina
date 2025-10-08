@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/HeroSection";
+import { AboutSection } from "@/components/AboutSection";
 import { MissionSection } from "@/components/MissionSection";
 import { ClassesSection } from "@/components/ClassesSection";
 import { GivingSection } from "@/components/GivingSection";
@@ -12,6 +13,7 @@ export default function HomePage() {
       <SiteHeader />
       <main>
         <HeroSection />
+        <AboutSection />
         <MissionSection />
         <ClassesSection />
         <GivingSection />

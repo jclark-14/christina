@@ -93,6 +93,24 @@ section {
   color: rgba(31, 41, 51, 0.75);
 }
 
+.about-content {
+  display: grid;
+  gap: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(31, 41, 51, 0.85);
+}
+
+@media (min-width: 960px) {
+  .about-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-content p:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
 .grid {
   display: grid;
   gap: 2rem;

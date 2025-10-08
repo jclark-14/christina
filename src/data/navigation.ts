@@ -1,4 +1,5 @@
 export const navigationItems = [
+  { id: "about", label: "About" },
   { id: "mission", label: "Mission" },
   { id: "classes", label: "Classes" },
   { id: "giving", label: "Giving" },
