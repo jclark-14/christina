@@ -95,32 +95,22 @@ section {
 
 .about-content {
   display: grid;
-  gap: 1.5rem;
+  gap: 2.5rem;
+  max-width: 900px;
+}
+
+.about-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin: 0 0 0.75rem 0;
+}
+
+.about-content p {
   font-size: 1.05rem;
   line-height: 1.75;
   color: rgba(31, 41, 51, 0.85);
-}
-
-/* About layout with image */
-.about-grid {
-  display: grid;
-  gap: 2rem;
-}
-
-.about-media {
-  position: relative;
-  min-height: 420px;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
-  background: white;
-}
-
-@media (min-width: 960px) {
-  .about-grid {
-    grid-template-columns: 3fr 2fr;
-    align-items: start;
-  }
+  margin: 0;
 }
 
 .grid {
@@ -299,18 +289,17 @@ textarea:focus {
   margin-top: 2rem;
 }
 
-.hero-card {
-  background: white;
+.hero-image {
+  position: relative;
+  min-height: 480px;
   border-radius: 1.5rem;
-  padding: 2rem;
-  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
+  background: white;
 }
 
-.hero-card strong {
-  display: block;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  margin-bottom: 0.75rem;
+@media (max-width: 959px) {
+  .hero-image {
+    min-height: 400px;
+  }
 }
