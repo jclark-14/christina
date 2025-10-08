@@ -243,6 +243,14 @@ textarea:focus {
     grid-template-columns: 3fr 2fr;
     align-items: center;
   }
+
+  .hero-image {
+    justify-items: end;
+  }
+
+  .hero-image__photo {
+    max-width: 420px;
+  }
 }
 
 .hero h1 {
@@ -264,18 +272,20 @@ textarea:focus {
   margin-top: 2rem;
 }
 
-.hero-card {
-  background: white;
-  border-radius: 1.5rem;
-  padding: 2rem;
-  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+.hero-image {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: center;
 }
 
-.hero-card strong {
-  display: block;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  margin-bottom: 0.75rem;
+.hero-image__photo {
+  width: 100%;
+  height: auto;
+  border-radius: 1.75rem;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+  object-fit: cover;
+}
+
+.hero-image .button {
+  width: fit-content;
 }
