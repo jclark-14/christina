@@ -1,7 +1,5 @@
-import Image from 'next/image';
 import { ButtonLink } from '@/components/ButtonLink';
 import { siteConfig } from '@/config/site';
-import christinaImage from '@/data/christina.png';
 
 export function HeroSection() {
   return (
@@ -28,20 +26,17 @@ export function HeroSection() {
             </ButtonLink>
           </div>
         </div>
-        <div className="hero-image">
-          <Image
-            src={christinaImage}
-            alt="Portrait of Christina"
-            priority
-            className="hero-image__photo"
-            sizes="(min-width: 960px) 40vw, 80vw"
-          />
+        <div className="hero-card">
+          <strong>What&apos;s new</strong>
+          <p>
+            Applications are open for the spring Leadership Labs cohort. We&apos;re gathering a
+            diverse group of leaders for six weeks of coaching, prayer, and strategic planning.
+          </p>
           <ButtonLink
             href={siteConfig.bookingFormUrl}
             variant="secondary"
             target="_blank"
             rel="noreferrer"
-            aria-label="Book a session with Christina"
           >
             Book a Session
           </ButtonLink>

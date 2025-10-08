@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { SectionHeader } from "@/components/SectionHeader";
+import christinaImage from "@/data/christina.png";
 
 const aboutParagraphs = [
   "Christina Fowler has dedicated over two decades to helping others experience the love of Jesus and grow into wholeness in Him. A former college basketball player, she began her ministry mentoring student-athletes and later served as a youth minister before founding and directing The Porch, a Washington, D.C.–based ministry dedicated to discipling underserved youth and families.",
@@ -10,15 +12,29 @@ export function AboutSection() {
   return (
     <section id="about">
       <div className="container">
-        <SectionHeader
-          eyebrow="About"
-          title="Meet Christina"
-          description="A pastor, mentor, and facilitator devoted to creating spaces of healing and formation."
-        />
-        <div className="about-content">
-          {aboutParagraphs.map((text) => (
-            <p key={text.slice(0, 24)}>{text}</p>
-          ))}
+        <div className="about-grid">
+          <div className="about-text">
+            <SectionHeader
+              eyebrow="About"
+              title="Meet Christina"
+              description="A pastor, mentor, and facilitator devoted to creating spaces of healing and formation."
+            />
+            <div className="about-content">
+              {aboutParagraphs.map((text) => (
+                <p key={text.slice(0, 24)}>{text}</p>
+              ))}
+            </div>
+          </div>
+          <aside className="about-media" aria-label="Portrait of Christina">
+            <Image
+              src={christinaImage}
+              alt="Portrait of Christina"
+              fill
+              priority
+              sizes="(min-width: 960px) 35vw, 90vw"
+              style={{ objectFit: "cover" }}
+            />
+          </aside>
         </div>
       </div>
     </section>
